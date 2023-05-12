@@ -52,7 +52,7 @@ exports.updatePost = asyncHandler(async (req, res, next) => {
 exports.allPosts = asyncHandler(async (req, res) => {
   console.log('value');
   let { page, limit } = req.query;
-  if (!page) page = 0;
+  if (!page) page = 1;
   if (!limit) limit = 10
 
   console.log(limit);
