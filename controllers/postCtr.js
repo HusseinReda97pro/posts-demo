@@ -56,8 +56,7 @@ exports.allPosts = asyncHandler(async (req, res) => {
   if (!limit) limit = 10
 
   console.log(limit);
-  console.log(skip);
-  const posts = await Post.find().skip(page * limit).limit(limit);
+  const posts = await Post.find().skip((page - 1) * limit).limit(page ? limit : 0);
   const postCount = (await Post.find()).length;
 
 
