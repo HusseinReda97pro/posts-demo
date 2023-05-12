@@ -51,13 +51,13 @@ exports.updatePost = asyncHandler(async (req, res, next) => {
 // @desc Get List of Posts
 exports.allPosts = asyncHandler(async (req, res) => {
   console.log('value');
-  let { skip, limit } = req.query;
-  if (!skip) skip = 0;
+  let { page, limit } = req.query;
+  if (!page) page = 0;
   if (!limit) limit = 10
 
   console.log(limit);
   console.log(skip);
-  const posts = await Post.find().skip(skip * limit).limit(limit);
+  const posts = await Post.find().skip(page * limit).limit(limit);
   const postCount = (await Post.find()).length;
 
 
