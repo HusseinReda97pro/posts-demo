@@ -24,7 +24,7 @@ const multer = require('multer', { storage });
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '/images/')
+    cb(null, 'images/')
   },
   filename: function (req, file, cb) {
     let ex = file.originalname.split('.')[file.originalname.split('.').length - 1];
@@ -32,7 +32,7 @@ var storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + Date.now() + "." + ex)
   }
 })
-const upload = multer({ dest: '/images/', storage: storage });
+const upload = multer({ dest: 'images/', storage: storage });
 
 app.use("/", upload.single('image'), (req, res, next) => {
   next();
