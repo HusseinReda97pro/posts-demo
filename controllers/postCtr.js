@@ -53,7 +53,7 @@ exports.allPosts = asyncHandler(async (req, res) => {
   console.log('value');
   let { skip, limit } = req.query;
   if (!skip) skip = 0;
-  if (!limit) limit = 5
+  if (!limit) limit = 10
 
   console.log(limit);
   console.log(skip);
