@@ -13,7 +13,7 @@ exports.createPost = asyncHandler(async (req, res) => {
   // console.log(req.file.originalname);
   let image_url = `images/${req.file.filename}`;
   // console.log('image_url', image_url);
-  const post = await Post.create({ title: req.body.title, details: req.body.details, image: image_url });
+  const post = await Post.create({ title: req.query.title, details: req.query.details, image: image_url });
   // images/
   // Associate user to post
   // await User.findByIdAndUpdate(
